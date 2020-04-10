@@ -1,5 +1,7 @@
 {
   "name": "study_english",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "css-doodle": "^0.8.5"
+  }
 }

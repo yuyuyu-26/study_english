@@ -1,14 +1,36 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>StudyEnglish</title>
+    <title>スタディイングリッシュ</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
   </head>
 
   <body>
+    <div class="pages">
+      <header tabindex="0">Study English</header>
+      <div id="nav-container">
+        <div class="bg"></div>
+        <div class="button" tabindex="0">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </div>
+        <div id="nav-content" tabindex="0">
+          <ul>
+            <li><a href="#0">ホーム</a></li>
+            <li><a href="#0">単語作成</a></li>
+            <li><a href="#0">問題を解く</a></li>
+            <li><a href="#0">概要</a></li>
+            <li><a href="#0">お問い合わせ</a></li>
+            <li class="small"><a href="#0">Facebook</a><a href="#0">Twitter</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
     <%= yield %>
   </body>
 </html>
