@@ -9,12 +9,23 @@
     </div>
     <div id="nav-content" tabindex="0">
       <ul>
-        <li><a href="/">ホーム</a></li>
-        <li><a href="#0">単語作成</a></li>
-        <li><a href="#0">問題を解く</a></li>
-        <li><a href="#0">概要</a></li>
-        <li><a href="#0">お問い合わせ</a></li>
-        <li class="small"><a href="#0">Facebook</a><a href="#0">Twitter</a></li>
+        <% if logged_in? %>
+          <li><a href="/">ホーム</a></li>
+          <li><a href="#0">単語作成</a></li>
+          <li><a href="#0">問題を解く</a></li>
+          
+          
+          <li><a href="#0">概要</a></li>
+          <li><a href="#0">お問い合わせ</a></li>
+          <li><a href="/users/<%= current_user.id %>">プロフィール</a></li>
+          <li><a href="#0">編集</a></li>
+          <li class="small"><a href="#0">Facebook</a><a href="#0">Twitter</a></li>
+        <% else %>
+        　<li><a href="/">ホーム</a></li>
+        　<li><a href="#0">概要</a></li>
+          <li><a href="#0">お問い合わせ</a></li>
+          <li><a href="/login">ログイン</a></li>
+        <% end %>
       </ul>
     </div>
   </div>
