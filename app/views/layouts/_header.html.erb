@@ -11,7 +11,8 @@
       <ul>
         <% if logged_in? %>
           <li><a href="/">ホーム</a></li>
-          <li><a href="#0">単語作成</a></li>
+          <li><a href="/words/new">単語作成</a></li>
+          <li><a href="/words">単語一覧</a></li>
           <li><a href="#0">問題を解く</a></li>
           
           
@@ -19,12 +20,15 @@
           <li><a href="#0">お問い合わせ</a></li>
           <li><a href="/users/<%= current_user.id %>">プロフィール</a></li>
           <li><a href="/users/<%= current_user.id %>/edit">編集</a></li>
+          <li><a data-method="delete" href="/logout">ログアウト</li>
           <li class="small"><a href="#0">Facebook</a><a href="#0">Twitter</a></li>
         <% else %>
-        　<li><a href="/">ホーム</a></li>
+          
+        　
         　<li><a href="#0">概要</a></li>
           <li><a href="#0">お問い合わせ</a></li>
           <li><a href="/login">ログイン</a></li>
+          <li><a href="/">ホーム</a></li>
         <% end %>
       </ul>
     </div>

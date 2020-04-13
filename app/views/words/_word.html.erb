@@ -1,0 +1,11 @@
+<!--%= form_for(@word) do |f| %>
+  <!%= f.check_box :complete, {}, checked_value = "true", unchecked_value = "false" %>
+  <div class="field">
+    <!%= form.label :complete %>
+    <!%= form.check_box :complete %>
+  </div>
+<!% end %>
+<!--%= link_to gravatar_for(micropost.user, size: 50), micropost.user %-->
+  
+<span class="english"><%= word.english %></span>
+<span class="japanese"><%= word.japanese %></span>
