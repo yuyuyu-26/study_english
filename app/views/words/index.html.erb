@@ -1,5 +1,17 @@
 <ul class="words">
-  <%= render @words %>
+    <div class="table-responsive">
+      <table class="table  table-striped">
+        <thead>
+          <tr>
+            <th>単語一覧</th>
+            <th>日本語訳</th>
+            <th>達成</th>
+          </tr>
+        </thead>
+        <tbody>
+          <%= render @words %>
+        </tbody>
+      </table>
+    </div>  
 </ul>
-
 <%= will_paginate %>

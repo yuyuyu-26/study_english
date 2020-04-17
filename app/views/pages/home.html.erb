@@ -14,24 +14,26 @@
     </div>
     <div class="lessons">
       <div class="lesson">
-        <i class="fas fa-balance-scale fa-large"></i>
+        <i class="fas fa-home fa-large"></i>
         <h4 class="txt-contents">どこでも学習できます</h4>
-        <p>メッセージ</p>
+        <p>PCやスマホでも学習できます</p>
       </div>
       <div class="lesson">
-        <i class="fas fa-balance-scale fa-large"></i>
-        <h4 class="txt-contents">どこでも学習できます</h4>
-        <p>メッセージ</p>
+        <i class="fas fa-chart-line fa-large"></i>
+        <h4 class="txt-contents">頑張りを数値化</h4>
+        <p>覚えた単語数を可視化</p>
       </div>
       <div class="lesson">
-        <i class="fas fa-balance-scale fa-large"></i>
-        <h4 class="txt-contents">どこでも学習できます</h4>
-        <p>メッセージ</p>
+        <i class="fas fa-hourglass-half fa-large"></i>
+        <h4 class="txt-contents">タイマー付き</h4>
+        <p>制限時間を設け実戦形式で解答</p>
       </div>
     </div>
-    <div class="sign">
-      <a href="/signup" class="btn-flat-simple">
-        <i class="fa fa-caret-right">新規登録</i>
-      </a>
-    </div>
+    <% if !logged_in? %>
+      <div class="sign">
+        <a href="/signup" class="btn-flat-simple">
+          <i class="fa fa-caret-right">新規登録</i>
+        </a>
+      </div>
+    <% end %>
 </div>

@@ -7,7 +7,12 @@ class UsersController < ApplicationController
   end
   
   def show
+    #array = []
     @user = User.find(params[:id])
+    @words = @user.words
+    #@word = current_user.group(complete: "true").count
+    #@word = Word.where(complete: "true").count(@user)
+    #Word.group(complete: :true).count
   end
   
   def create
@@ -39,7 +44,7 @@ class UsersController < ApplicationController
 
     def user_params
       params.require(:user).permit(:name, :email, :password,
-                                   :password_confirmation, :image)
+                                   :password_confirmation, :image_name)
     end
     
     # beforeアクション

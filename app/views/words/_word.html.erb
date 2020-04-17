@@ -1,11 +1,14 @@
-<!--%= form_for(@word) do |f| %>
-  <!%= f.check_box :complete, {}, checked_value = "true", unchecked_value = "false" %>
-  <div class="field">
-    <!%= form.label :complete %>
-    <!%= form.check_box :complete %>
-  </div>
-<!% end %>
-<!--%= link_to gravatar_for(micropost.user, size: 50), micropost.user %-->
-  
-<span class="english"><%= word.english %></span>
-<span class="japanese"><%= word.japanese %></span>
+<tr>
+  <% if !word.complete? %>
+    <td><%= word.english %></td>
+    <td><%= word.japanese %></td>
+    <td>
+      <%= form_for(word) do |f| %>
+        <div class="d-flex flex-row pull-left">
+          <%= f.check_box :complete, {}, checked_value = "true", unchecked_value = "false" %>
+          <%= f.submit "保存", class: "btn btn-primary btn-xs" %>
+        </div>
+      <% end %>
+    </td>
+  <% end %>
+</tr>
