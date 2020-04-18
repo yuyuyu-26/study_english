@@ -37,8 +37,18 @@ class WordsController < ApplicationController
     #word = Word.find_by(params[:complete])
     word = Word.find(params[:id])
     if word.update_attributes(word_params)
-      redirect_to "/words"
+      if word.complete?
+        redirect_to "/words"
+      else !word.complete?
+        redirect_to "/practice"
+      end
     end
+  end
+  
+  def practice
+    #word = Word.find(params[:id])
+    #@answers = Word.paginate(page: params[:page])
+    @answers = Word.where(complete: true)
   end
   
   
