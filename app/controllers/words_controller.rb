@@ -6,7 +6,8 @@ class WordsController < ApplicationController
     #@word = Word.new
     #@word = Word.find_by(params[:complete])
     #@word.update_attributes(:complete, "true")
-    @words = Word.paginate(page: params[:page])
+    #@words = Word.paginate(page: params[:page], per_page: 10)
+    @words = Word.paginate(page: params[:page], per_page: 10).where(complete: false)
      #if @word.complete.checked_value == "true"
       # @word.update_attributes(:complete, "true")
      #else @word.complete.unchecked_value == "false"
@@ -47,8 +48,11 @@ class WordsController < ApplicationController
   
   def practice
     #word = Word.find(params[:id])
-    #@answers = Word.paginate(page: params[:page])
-    @answers = Word.where(complete: true)
+    #@answers_page = Word.paginate(page: params[:page], per_page: 10)
+    @answers = Word.paginate(page: params[:page], per_page: 10).where(complete: true)
+  end
+  
+  def answer
   end
   
   
