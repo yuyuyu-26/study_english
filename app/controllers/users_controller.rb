@@ -20,7 +20,7 @@ class UsersController < ApplicationController
     if @user.save
       log_in @user
       flash[:success] = "英単語学習アプリへようこそ！"
-      redirect_back_or user
+      redirect_to @user
     else
       render 'new'
     end

@@ -1,83 +1,77 @@
 'use strict';
 
 {
-  const question = document.getElementById('question');
-  const choices = document.getElementById('choices');
-  const btn = document.getElementById('btn');
-  const result = document.getElementById('result');
-  const scoreLabel = document.querySelector('#result > p');
+  let word;
+  let loc;
+  let score;
+  let miss;
+  const timeLimit = 3 * 1000;
+  let startTime;
+  let isPlaying = false;
 
-  const quizSet = shuffle([
-    {q: '世界で一番大きな湖は？', c: ['カスピ海', 'カリブ海', '琵琶湖']},
-    {q: '2の8乗は？', c: ['256', '64', '1024']},
-    {q: '次のうち、最初にリリースされた言語は？', c: ['Python', 'JavaScript', 'HTML']},
-  ]);
-  let currentNum = 0;
-  let isAnswered;
-  let score = 0;
+  const target = document.getElementById('target');
+  const scoreLabel = document.getElementById('score');
+  const missLabel = document.getElementById('miss');
+  const timerLabel = document.getElementById('timer');
+  const react = document.getElementById('react');
+  
+  let inputElement = document.querySelector('input[class="answer"]');
+  
+  
+  
+  // 要素を取得
+  let ele = document.getElementById('question');
+    // let react = document.getElementById('question').children(input[:text]);
+  // let answer = document.getElementById("answer");
+  // 現在の visibility プロパティの値を保持
+  const visibilityOriginal = ele.style.visibility;
+  // const visibility = react.style.visibility;
+  
+  // hidden に設定して非表示
+  ele.style.visibility = 'hidden';
+  // react.style.visibility = 'hidden';
+ 
+  
+  
+  // 変数testの要素を入力不可にする
+  
 
-  function shuffle(arr) {
-    for (let i = arr.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [arr[j], arr[i]] = [arr[i], arr[j]];
+  function updateTimer() {
+    const timeLeft = startTime + timeLimit - Date.now();
+    timerLabel.textContent = (timeLeft / 1000).toFixed(2);
+
+    const timeoutId = setTimeout(() => {
+      updateTimer();
+    }, 10);
+
+    if (timeLeft < 0) {
+      
+      
+      clearTimeout(timeoutId);
+      timerLabel.textContent = '0.00';
+      ele.style.visibility = 'hidden';
+      // inputElement.readOnly = true;
+      // react.style.visibility = 'hidden';
+      
+      setTimeout(() => {
+        showResult();
+      }, 100);
+
+      target.textContent = 'Finish!!';
+      react.textContent = 'テストが終了しました';
     }
-    return arr;
   }
-
-  function checkAnswer(li) {
-    if (isAnswered) {
+  
+  window.addEventListener('click', () => {
+    
+    if (isPlaying === true) {
       return;
     }
-    isAnswered = true;
-
-    if (li.textContent === quizSet[currentNum].c[0]) {
-      li.classList.add('correct');
-      score++;
-    } else {
-      li.classList.add('wrong');
-    }
-
-    btn.classList.remove('disabled');
-  }
-
-  function setQuiz() {
-    isAnswered = false;
-
-    question.textContent = quizSet[currentNum].q;
-
-    while (choices.firstChild) {
-      choices.removeChild(choices.firstChild);
-    }
-
-    const shuffledChoices = shuffle([...quizSet[currentNum].c]);
-    shuffledChoices.forEach(choice => {
-      const li = document.createElement('li');
-      li.textContent = choice;
-      li.addEventListener('click', () => {
-        checkAnswer(li);
-      });
-      choices.appendChild(li);
-    });
-
-    if (currentNum === quizSet.length - 1) {
-      btn.textContent = 'Show Score';
-    }
-  }
-
-  setQuiz();
-
-  btn.addEventListener('click', () => {
-    if (btn.classList.contains('disabled')) {
-      return;
-    }
-    btn.classList.add('disabled');
-
-    if (currentNum === quizSet.length - 1) {
-      scoreLabel.textContent = `Score: ${score} / ${quizSet.length}`;
-      result.classList.remove('hidden');
-    } else {
-      currentNum++;
-      setQuiz();
-    }
+    isPlaying = true;
+   
+    ele.style.visibility = visibilityOriginal;
+    startTime = Date.now();
+    updateTimer();
   });
+
 }

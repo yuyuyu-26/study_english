@@ -1,11 +1,8 @@
-<section class="answer">
-  <p id="question"></p>
-  <ul id="choices"></ul>
-  <div id="btn" class="disabled">Next</div>
-
-  <section id="result" class="hidden">
-    <p></p>
-    <a href="">Replay?</a>
-  </section>
-</section>
-<%= javascript_include_tag "main.js" %>
+<% @answers.each do |answer| %>
+  <!--%= answer[:word].english %--!>
+  <!--%= answer[:japanese] ? "正解" : "不正解" %>
+  <!%= answer[:word].japanese %--!>
+  <%= answer[:word] %>
+  <%= answer[:japanese] ? "正解" : "不正解" %>
+  <%= answer[:japan] %>
+<% end %>

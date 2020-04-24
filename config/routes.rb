@@ -14,7 +14,8 @@ Rails.application.routes.draw do
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
   get '/practice', to: 'words#practice'
-  get "/answers", to: "words#answer"
+  post "/answers", to: "words#answer"
+  get "/question", to: "words#question"
   
   
   resources :users

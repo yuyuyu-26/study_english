@@ -4,4 +4,8 @@ class Word < ApplicationRecord
   validates :english, presence: true, length: { maximum: 30 }
   validates :japanese, presence: true, length: { maximum: 50 }
   default_scope -> { order(english: :desc) }
+  
+  def japanese?(replay)
+    return self.japanese == replay
+  end
 end
