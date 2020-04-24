@@ -4,22 +4,20 @@ Rails.application.routes.draw do
   get 'sessions/new'
 
   root 'pages#home'
-  get "pages/home"
-  get  '/help',    to: 'static_pages#help'
-  get  '/about',   to: 'static_pages#about'
-  get  '/contact', to: 'static_pages#contact'
+  get 'pages/home'
   get  '/signup',  to: 'users#new'
   post '/signup',  to: 'users#create'
+  get  '/help',    to: 'users#help'
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
   get '/practice', to: 'words#practice'
-  post "/answers", to: "words#answer"
-  get "/question", to: "words#question"
+  post '/answers', to: 'words#answer'
+  get '/question', to: 'words#question'
   
   
   resources :users
-  resources :words, only: [:new, :index, :create, :destroy, :update]
+  resources :words, only: [:new, :index, :create, :update]
   
   
 

@@ -1,8 +1,17 @@
-<% @answers.each do |answer| %>
-  <!--%= answer[:word].english %--!>
-  <!--%= answer[:japanese] ? "正解" : "不正解" %>
-  <!%= answer[:word].japanese %--!>
-  <%= answer[:word] %>
-  <%= answer[:japanese] ? "正解" : "不正解" %>
-  <%= answer[:japan] %>
-<% end %>
+<ul class="words">
+  <div class="table-responsive">
+    <table class="table  table-striped">
+      <h3>採点結果</h3>
+      <thead>
+        <tr>
+          <th>単語(a-z順)</th>
+          <th>答え</th>
+          <th>結果</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= render partial: "answers", collection: @answers %>
+      </tbody>
+    </table>
+  </div>
+</ul>

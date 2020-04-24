@@ -9,7 +9,22 @@ body {
 }
 
 .container {
-  
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.question {
+  text-align: center;
+}
+
+.green {
+  color: green;
+}
+
+.red {
+  color: red;
 }
 
 .field check_box {
@@ -46,6 +61,7 @@ strong {
   font-weight: 600;
   letter-spacing: .03em;
   color: #212121;
+  user-select: none;
 }
 
 .page {
@@ -57,6 +73,7 @@ strong {
   font-weight: 600;
   letter-spacing: .03em;
   color: #212121;
+  user-select: none;
 }
 
 header {
@@ -64,8 +81,8 @@ header {
   position: fixed;
   width: 100%;
   height: 70px;
-  background: #212121;
-  color: #fff;
+  background: #45318f;
+  color: #f9ff3b;
   justify-content: center;
   align-items: center;
   -webkit-tap-highlight-color: rgba(0,0,0,0);
@@ -292,11 +309,20 @@ img {
 }
 
 .lesson-wrapper {
-  background-color: #ddd;
+  background-color: #33b77945;
   width: 100%;
   height: 100vh;
   padding-bottom: 80px;
   text-align: center;
+  user-select: none;
+}
+
+.lesson p {
+  margin: 20px 0 10px;
+}
+
+.lesson h4 {
+  font-size: 25px;
 }
 
 .heading {
@@ -309,13 +335,13 @@ img {
   font-family: 'Hiragino Kaku Gothic Pro','ヒラギノ角ゴ Pro W3','メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif;
   font-weight: 600;
   letter-spacing: .03em;
-  color: #33a3b7;
+  color: #337ab7;
 }
 
 .heading h3 {
   font-family: 'Hiragino Kaku Gothic Pro','ヒラギノ角ゴ Pro W3','メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif;
   padding-top: 30px;
-  color: rgba(0, 0, 0, 0.5);;
+  color: #31488f;
 }
 
 .lessons {
@@ -476,6 +502,22 @@ input[type="check_box"] {
 .btn {
   margin-left: 5px;
   margin-bottom: 3px;
+}
+
+.btn-primary {
+  color: #333;
+  background-color: #00BCD4;
+  border-color: #00BCD4;
+}
+
+.btn:hover {
+  color: #333333ab;
+  background-color: #00bcd496;
+  border-color: #00bcd496;
+}
+
+.col-md-6 {
+  text-align: center;
 }
 
 .word-tabs {

@@ -1,18 +1,14 @@
 class UsersController < ApplicationController
-  before_action :logged_in_user, only: [:edit, :update]
-  before_action :correct_user,   only: [:edit, :update]
+  before_action :logged_in_user, only: [:edit, :update, :show, :help]
+  before_action :correct_user,   only: [:edit, :update, :show]
   
   def new
     @user = User.new
   end
   
   def show
-    #array = []
     @user = User.find(params[:id])
     @words = @user.words
-    #@word = current_user.group(complete: "true").count
-    #@word = Word.where(complete: "true").count(@user)
-    #Word.group(complete: :true).count
   end
   
   def create
@@ -40,6 +36,9 @@ class UsersController < ApplicationController
     end
   end
   
+  def help
+  end
+  
   private
 
     def user_params
@@ -48,9 +47,6 @@ class UsersController < ApplicationController
     end
     
     # beforeアクション
-
-    
-    
     # 正しいユーザーかどうか確認
     def correct_user
       @user = User.find(params[:id])

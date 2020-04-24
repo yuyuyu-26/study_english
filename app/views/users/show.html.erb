@@ -12,15 +12,14 @@
       <h5><%= @user.email %></h5>
     </section>
   </aside>
-  <div　class="col-md-8">
+  <div class="col-md-8">
     <div class="user_complete">
       <p>クリア数：<%= @user.words.count{|i| i.complete? === true}  %>/<%= @user.words.count %></p>
       <% if @user.words.count > 0 %>
-        <p>達成率：<%= @user.words.count{|i| i.complete? === true} * 100 / @user.words.count %>　%</p>
+        <p>達成率：<%= @user.words.count{|i| i.complete? === true} * 100 / @user.words.count %>%</p>
       <% else %>
         <p>達成率：0%</p>
       <% end %>
     </div>
   </div>
-  
 </div>

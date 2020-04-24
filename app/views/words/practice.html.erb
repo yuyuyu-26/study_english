@@ -1,21 +1,21 @@
 <ul class="words">
-    <ul class="word-tabs">
-      <li><%= link_to("未達成", "/words") %></li>
-      <li class="active"><%= link_to("達成", "/practice") %></li>
-    </ul>
-    <div class="table-responsive">
-      <table class="table  table-striped">
-        <thead>
-          <tr>
-            <th>単語一覧</th>
-            <th>日本語訳</th>
-            <th>達成</th>
-          </tr>
-        </thead>
-        <tbody>
-          <%= render partial: "answer", collection: @answers %>
-        </tbody>
-      </table>
-    </div>
+  <ul class="word-tabs">
+    <li><%= link_to("未達成", "/words") %></li>
+    <li class="active"><%= link_to("達成", "/practice") %></li>
+  </ul>
+  <div class="table-responsive">
+    <table class="table  table-striped">
+      <thead>
+        <tr>
+          <th>単語一覧(a-z順)</th>
+          <th>日本語訳</th>
+          <th>達成</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= render partial: "answer", collection: @answers %>
+      </tbody>
+    </table>
+  </div>
 </ul>
 <%= will_paginate @answers %>

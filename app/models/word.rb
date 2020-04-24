@@ -3,7 +3,7 @@ class Word < ApplicationRecord
   validates :user_id, presence: true
   validates :english, presence: true, length: { maximum: 30 }
   validates :japanese, presence: true, length: { maximum: 50 }
-  default_scope -> { order(english: :desc) }
+  default_scope -> { order(english: :asc) }
   
   def japanese?(replay)
     return self.japanese == replay

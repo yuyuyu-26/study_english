@@ -1,11 +1,13 @@
 <footer class="footer">
   <small>
-    <p>MUHAHAN</p>
+    <p> 2020 YU</p>
   </small>
   <nav>
     <ul>
-      <li><%= link_to "About",   about_path %></li>
-      <li><%= link_to "Contact", contact_path %></li>
+      <% if logged_in? %>
+        <li><%= link_to "ヘルプ", "help" %></li>
+      <% end %>
+      <li><%= link_to "お問い合わせ", "https://twitter.com/yu_pg_bn" %></li>
     </ul>
   </nav>
 </footer>

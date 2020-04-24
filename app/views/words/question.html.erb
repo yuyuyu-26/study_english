@@ -1,21 +1,26 @@
-<% if @words.count >= 10 %>  
-  <p id="target">click to start</p>
-  Letter count: <span id="score">0</span>,
-  Miss count: <span id="miss">0</span>,
-  Time left: <span id="timer">0.00</span>
-  <div id="react"></div>
-    <%= form_tag "/answers" do %>
-    <div id="question">
-      <% @words.each do |word| %>
-        <%= word.english %>
-        <%= hidden_field_tag "word[]", word.id %>
-        <%= text_field_tag "word#{word.id}" %>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">    
+    <div class="question">
+      <% if @words.count >= 10 %>  
+        <p id="target">画面をタップするとスタートします</br>
+        未達成の問題からランダムに10問出題されます</p>
+        <p>※残り時間が0秒になると入力できなくなります</p>
+        残り時間：<span id="timer">180.00</span>s
+        <div id="react">　</div>
+          <%= form_tag "/answers" do %>
+          <%= submit_tag "回答", class: "btn btn-primary" %>
+          <div id="question">
+            <% @words.each do |word| %>
+              <%= word.english %>
+              <%= hidden_field_tag "word[]", word.id %>
+              <%= text_field_tag "word#{word.id}","", {class: 'form-control'} %>
+            <% end %>
+          </div>
+          <% end %>
+      <% else %>
+       <p>未達成の単語が10個以上あると、この機能が解放されるよ！</p>
       <% end %>
     </div>
-      <%= submit_tag "回答" %>
-      <% end %>
   </div>
-<% else %>
- <p>未達成の単語が10個以上あると、この機能が解放されるよ</p>
-<% end %>
+</div>
 <%= javascript_include_tag "main.js" %>
