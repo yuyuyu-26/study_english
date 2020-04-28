@@ -6,11 +6,13 @@
   let isPlaying = false;
 
   const target = document.getElementById('target');
-  
+  const scoreLabel = document.getElementById('score');
+  const missLabel = document.getElementById('miss');
   const timerLabel = document.getElementById('timer');
   const react = document.getElementById('react');
   
   
+  let inputElement = document.querySelector('input[class="answer"]');
   let ele = document.getElementById('question');
   const visibilityOriginal = ele.style.visibility;
   ele.style.visibility = 'hidden';
@@ -29,7 +31,7 @@
       ele.style.visibility = 'hidden';
 
       setTimeout(() => {
-        
+        showResult();
       }, 100);
 
       target.textContent = 'Finish!!';
@@ -52,3 +54,4 @@
   });
 
 }
+;
