@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   get '/question', to: 'words#question'
   
   
-  resources :users
+  resources :users, only: [:new, :show, :create, :edit, :update]
   resources :words, only: [:new, :index, :create, :update]
   
   
