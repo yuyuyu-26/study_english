@@ -26,7 +26,7 @@ Ruby on Railsで制作したアプリとなります
 ## インストール
 
 ```ruby
-https://github.com/yuyuyu-26/study_english.git
+$ git clone https://github.com/yuyuyu-26/study_english.git
 ```
 
 ## その他
