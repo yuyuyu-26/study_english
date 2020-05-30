@@ -13,7 +13,7 @@
             <% @words.each do |word| %>
               <%= word.english %>
               <%= hidden_field_tag "word[]", word.id %>
-              <%= text_field_tag "word#{word.id}","", {class: 'form-control'} %>
+              <%= text_field_tag "word#{word.id}","", {class: 'form-control',autocomplete: 'off'} %>
             <% end %>
           </div>
           <% end %>
